@@ -56,7 +56,7 @@ func main() {
 		// from := r.FormValue("From")
 		body := r.FormValue("Body")
 
-		fmt.Println(body)
+		// fmt.Println(body)
 
 		if body == "1" || strings.Contains(body, "something in punjabi") {
 			message1 := Message{

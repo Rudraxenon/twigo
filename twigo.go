@@ -103,9 +103,9 @@ func main() {
 		}
 	}).Methods("POST")
 
-	e := http.ListenAndServe(":8989", r)
+	e := http.ListenAndServe(":8888", r)
 	if e != nil {
-		fmt.Println("Error starting server")
+		fmt.Println(e)
 	}
 
 }

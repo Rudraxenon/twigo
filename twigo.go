@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
-	"strings"
+	"os"
 
 	"net/http"
+	"strings"
 
 	"github.com/gorilla/mux"
-
+	"github.com/joho/godotenv"
 	"github.com/twilio/twilio-go"
 	twilioApi "github.com/twilio/twilio-go/rest/api/v2010"
 )
@@ -22,8 +23,13 @@ type Message struct {
 }
 
 func main() {
-	accountSid := "ACd0ddd08bf0d78556fa31145b456c8720"
-	authToken := "347ef2384014ccffcf5d1c67f3823057"
+
+	godotenv.Load()
+	accountSid := os.Getenv("SID")
+	authToken := os.Getenv("TOKEN")
+
+	// fmt.Println(accountSid)
+	// fmt.Println(authToken)
 
 	client := twilio.NewRestClientWithParams(twilio.ClientParams{
 		Username: accountSid,
